@@ -23,7 +23,7 @@ def consumer(cv, name):
 condition = threading.Condition()
 cs1 = threading.Thread(name='consumer1', target=consumer,
                        args=(condition, "thread-1"))
-cs2 = threading.Thread(name='consumer2', target=consumer, 
+cs2 = threading.Thread(name='consumer2', target=consumer,
                        args=(condition, "thread-2"))
 
 cs1.start()
