@@ -6,8 +6,8 @@ By synchronizing processes with
 Lock object and shared counter with Value object.
 """
 
-import time
 import multiprocessing
+import time
 
 
 def print_numbers(thread_name, delay, counter):
