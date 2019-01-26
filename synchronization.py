@@ -8,12 +8,15 @@ import urllib.request
 
 URL = 'https://www.python.org/downloads/source/'
 
+
 def get_links_for_download():
     response = urllib.request.urlopen(URL)
     return re.findall(r'Download <a href="(.*?)">', str(response.read()))
 
+
 def download_bunch_of_files(link):
     urllib.request.urlretrieve(link)
+
 
 def start_thr(links):
     _list_of_thr = []
@@ -27,7 +30,8 @@ def start_thr(links):
         i.join()
 
     print("Download all bunches with threads from {},"
-          "took {:.2f} sec".format(URL, time.time()-start_time))
+          "took {:.2f} sec".format(URL, time.time() - start_time))
+
 
 @asyncio.coroutine
 async def download_coroutine(url):
@@ -42,6 +46,7 @@ async def download_coroutine(url):
                     f_handle.write(chunk)
 
             return await response.release()
+
 
 async def download_multiple(links):
     start_time = time.time()
