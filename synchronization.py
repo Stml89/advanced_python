@@ -10,8 +10,7 @@ URL = 'https://www.python.org/downloads/source/'
 
 def get_links_for_download():
     response = urllib.request.urlopen(URL)
-    text = response.read()
-    return re.findall(r'Download <a href="(.*?)">', str(text))
+    return re.findall(r'Download <a href="(.*?)">', str(response.read()))
 
 def download_bunch_of_files(link):
     urllib.request.urlretrieve(link)
@@ -41,12 +40,15 @@ async def download_coroutine(url):
                     if not chunk:
                         break
                     f_handle.write(chunk)
+
             return await response.release()
 
 async def download_multiple(links):
     start_time = time.time()
+
     tasks = [asyncio.create_task(download_coroutine(link)) for link in links]
     await asyncio.gather(*tasks)
+
     print("Download all bunches with asyncio from {},"
           " took {} sec".format(URL, time.time() - start_time))
 
