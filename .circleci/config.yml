@@ -8,19 +8,19 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.7
     steps:
       - checkout
   test-flake8:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.67
     steps:
       - checkout
       - run: sudo pip install tox
       - run: tox -eflake8
   test-pycodestyle:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.7
     steps:
       - checkout
       - run: sudo pip install tox
