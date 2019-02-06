@@ -2,7 +2,7 @@ FILE_NAME = 'items.txt'
 MAX_WEIGHT_DAG = 400
 
 
-class Pack():
+class Pack(object):
     def __init__(self, value=None, weight=None, file_name=FILE_NAME):
         self.value = value
         self.weight = weight
