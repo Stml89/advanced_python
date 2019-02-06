@@ -14,7 +14,8 @@ class Pack(object):
         return [line.strip().split(',') for line in open(file_name)]
 
     def convert_to_obj(self):
-        return [type(line[0], (object,), {'value': int(line[1]), 'weight': int(line[2])})
+        return [type(line[0], (object,),
+                     {'value': int(line[1]), 'weight': int(line[2])})
                 for line in self.text_list[1:]]
 
     @staticmethod
