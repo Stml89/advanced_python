@@ -11,17 +11,11 @@ class Pack(object):
 
     @staticmethod
     def read_file(file_name):
-        _text = []
-        for line in open(file_name):
-            _text.append(line.strip().split(','))
-        return _text
+        return [line.strip().split(',') for line in open(file_name)]
 
     def convert_to_obj(self):
-        _list = []
-        for line in self.text_list[1:]:
-            _list.append(type(line[0], (object,), {'value': int(line[1]),
-                                                   'weight': int(line[2])}))
-        return _list
+        return [type(line[0], (object,), {'value': int(line[1]), 'weight': int(line[2])})
+                for line in self.text_list[1:]]
 
     @staticmethod
     def convert_dag_to_kg(dag):
