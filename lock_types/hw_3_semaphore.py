@@ -28,14 +28,14 @@ def odd_numbers(es, os):
         print("Thread2 {}".format(count))
         es.release()
 
+def start_semaphore():
+    even_sem = threading.Semaphore(1)
+    odd_sem = threading.Semaphore(0)
 
-even_sem = threading.Semaphore(1)
-odd_sem = threading.Semaphore(0)
-
-even = threading.Thread(name='even_numbers', target=even_numbers,
-                        args=(even_sem, odd_sem))
-odd = threading.Thread(name='odd_numbers', target=odd_numbers,
-                       args=(even_sem, odd_sem))
-even.start()
-time.sleep(2)
-odd.start()
+    even = threading.Thread(name='even_numbers', target=even_numbers,
+                            args=(even_sem, odd_sem))
+    odd = threading.Thread(name='odd_numbers', target=odd_numbers,
+                           args=(even_sem, odd_sem))
+    even.start()
+    time.sleep(2)
+    odd.start()

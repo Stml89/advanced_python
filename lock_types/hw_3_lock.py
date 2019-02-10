@@ -30,8 +30,9 @@ def print_odd_numbers(name, sleep_time):
         if count % 2:
             print_numbers(name, sleep_time)
 
-t1 = threading.Thread(target=print_even_numbers, args=("Thread-1", 1))
-t2 = threading.Thread(target=print_odd_numbers, args=("Thread-2", 1))
+def start_lock():
+    t1 = threading.Thread(target=print_even_numbers, args=("Thread-1", 1))
+    t2 = threading.Thread(target=print_odd_numbers, args=("Thread-2", 1))
 
-t1.start()
-t2.start()
+    t1.start()
+    t2.start()

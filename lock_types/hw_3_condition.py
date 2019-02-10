@@ -26,9 +26,10 @@ cs1 = threading.Thread(name='consumer1', target=consumer,
 cs2 = threading.Thread(name='consumer2', target=consumer,
                        args=(condition, "thread-2"))
 
-cs1.start()
-time.sleep(2)
-cs2.start()
+def start_condition():
+    cs1.start()
+    time.sleep(2)
+    cs2.start()
 
-with condition:
-    condition.notify()
+    with condition:
+        condition.notify()

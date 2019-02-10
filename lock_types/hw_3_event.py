@@ -30,12 +30,12 @@ def odd(event):
             count += 1
         event.set()
 
+def start_event():
+    print_event = threading.Event()
 
-print_event = threading.Event()
+    first = threading.Thread(name='even', target=even, args=(print_event,))
+    second = threading.Thread(name='odd', target=odd, args=(print_event,))
 
-first = threading.Thread(name='even', target=even, args=(print_event,))
-second = threading.Thread(name='odd', target=odd, args=(print_event,))
-
-first.start()
-time.sleep(1)
-second.start()
+    first.start()
+    time.sleep(1)
+    second.start()
