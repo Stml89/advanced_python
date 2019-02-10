@@ -18,6 +18,7 @@ def print_numbers(number, limit):
         print("{0} {1}".format(number, count))
         sleep(1)
 
+
 def start_timer():
     t = Timer(1, print_numbers, args=["Thread-1", LIMIT])
     t2 = Timer(2, print_numbers, args=['Thread-2', LIMIT])

@@ -30,6 +30,7 @@ def odd(event):
             count += 1
         event.set()
 
+
 def start_event():
     print_event = threading.Event()
 

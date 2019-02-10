@@ -26,6 +26,7 @@ cs1 = threading.Thread(name='consumer1', target=consumer,
 cs2 = threading.Thread(name='consumer2', target=consumer,
                        args=(condition, "thread-2"))
 
+
 def start_condition():
     cs1.start()
     time.sleep(2)

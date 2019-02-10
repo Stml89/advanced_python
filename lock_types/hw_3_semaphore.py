@@ -28,6 +28,7 @@ def odd_numbers(es, os):
         print("Thread2 {}".format(count))
         es.release()
 
+
 def start_semaphore():
     even_sem = threading.Semaphore(1)
     odd_sem = threading.Semaphore(0)
