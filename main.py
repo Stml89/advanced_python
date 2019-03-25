@@ -34,7 +34,9 @@ class Pack(object):
             return False
 
         pack.max_weight = max_weight
-        return list(filter(pack, sorted(items, key=self.efficiency, reverse=True)))
+        return list(filter(pack, sorted(items,
+                                        key=self.efficiency,
+                                        reverse=True)))
 
 
 pack = Pack()
