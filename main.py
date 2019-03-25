@@ -15,7 +15,7 @@ class Pack(object):
 
     def convert_to_obj(self):
         return [type(line[0], (object,),
-                     {'value': int(line[1]), 'weight': int(line[2])})
+                     {'weight': int(line[1]), 'value': int(line[2])})
                 for line in self.text_list[1:]]
 
     @staticmethod
@@ -34,7 +34,7 @@ class Pack(object):
             return False
 
         pack.max_weight = max_weight
-        return list(filter(pack, sorted(items, key=self.efficiency)))
+        return list(filter(pack, sorted(items, key=self.efficiency, reverse=True)))
 
 
 pack = Pack()
